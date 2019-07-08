@@ -9,7 +9,7 @@ public class Snack
     private double cost; // Cost of Snack (double)
     private int vendingMachineId; // id of Vending Machine that holds the snack
 
-    public snack(String name, int quantity, double cost, int vendingMachineId)
+    public Snack(String name, int quantity, double cost, int vendingMachineId)
     {
         maxId++;
         id = maxId;
