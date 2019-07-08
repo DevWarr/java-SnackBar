@@ -2,7 +2,7 @@ package snackBar;
 
 public class Snack
 {
-    private static int maxId; // Stores current maximum id, incremented and used to set id of a new object
+    private static int maxId = 0; // Stores current maximum id, incremented and used to set id of a new object
     private int id; // Id value of Snack
     private String name; // Name of Snack
     private int quantity; // Quanity of Snack

@@ -2,7 +2,7 @@ package snackBar;
 
 public class VendingMachine
 {
-    private static int maxId; // Stores current maximum id, incremented and used to set id of a new object
+    private static int maxId = 0; // Stores current maximum id, incremented and used to set id of a new object
     private int id; // id of vending maching
     private String name; // name of vending machine
 
