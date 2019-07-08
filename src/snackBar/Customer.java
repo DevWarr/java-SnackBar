@@ -38,8 +38,22 @@ public class Customer
     }
 
     // buy a specified snack, if theycustomer has enough cash
-    public buySnack(Class snack, int quantity)
+    public String buySnack(Object snack, int quantity)
     {
-        snack.buySnack()
+        double cost = snack.buySnack(cash, quantity);
+
+        // error handling
+        if (cost == -1)
+        {
+            return result = "There are not enough snacks to buy.";
+        }
+        if (cost == -2)
+        {
+            return result = name + " does not have enough cash to buy " + quantity + " of " + snack.name;
+        }
+
+        // if successful
+        cash -= cost;
+        return result = "Transaction successful.";
     }
 }

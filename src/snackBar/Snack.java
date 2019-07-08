@@ -81,8 +81,17 @@ public class Snack
     }
 
     // buy snack(s)
-    public void buySnack(int quantity)
+    public double buySnack(double cash, int quantity)
     {
-        this.quantity -= quantity;
+        if (!(this.quantity > quantity))
+        {
+            return result = -1; // Error code: Not enough snacks to purchase
+        }
+        if (!(cash > cost*quantity))
+        {
+            return result = -2; // Error code: Not enough cash to purchase
+        }
+        this.quantity -= quantity; // Set our new auntity of snacks
+        return cost*quantity; // Return how much the purchase cost.
     }
 }
