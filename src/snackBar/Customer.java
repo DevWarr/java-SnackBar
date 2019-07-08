@@ -38,5 +38,8 @@ public class Customer
     }
 
     // buy a specified snack, if theycustomer has enough cash
-    public buySnack(int snackId, int quantity)
+    public buySnack(Class snack, int quantity)
+    {
+        snack.buySnack()
+    }
 }
