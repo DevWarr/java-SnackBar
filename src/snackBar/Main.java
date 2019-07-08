@@ -13,12 +13,12 @@ public class Main
         VendingMachine vm2 = new VendingMachine("Drink");
         VendingMachine vm3 = new VendingMachine("Office");
 
-        Snack s1 = new Snack("Chips", 36, 1.75, 1);
-        Snack s2 = new Snack("Chocolate Bar", 36, 1.00, 1);
-        Snack s3 = new Snack("Pretzel", 30, 2.00, 1);
+        Snack s1 = new Snack("Chips", 36, 1.75, vm1.getId());
+        Snack s2 = new Snack("Chocolate Bar", 36, 1.00, vm1.getId());
+        Snack s3 = new Snack("Pretzel", 30, 2.00, vm1.getId());
         
-        Snack s4 = new Snack("Soda", 24, 2.50, 2);
-        Snack s5 = new Snack("Water", 20, 2.75, 2);
+        Snack s4 = new Snack("Soda", 24, 2.50, vm2.getId());
+        Snack s5 = new Snack("Water", 20, 2.75, vm2.getId());
 
         // Display Vanding Machines and snacks within
         System.out.println("Inside the " + vm1.getName() + " vending machine:");
@@ -43,12 +43,17 @@ public class Main
         System.out.println(c1.buySnack(s3, 1));
         System.out.println(c2.buySnack(s4, 2));
         System.out.println(c1.getName() + " finds $10!");
+        c1.addCash(10.0);
         System.out.println(c1.info() + "\n");
         System.out.println(c1.buySnack(s2, 1));
+        s3.addQuantity(12);
         System.out.println("12 of " + s3.getName() + " were added.\nThere are now " + s3.getQuantity() + " of " + s3.getName() + ".\n");
         System.out.println(c2.buySnack(s3, 3));
 
         // Extra processing
         System.out.println(c2.buySnack(s4, 50));
+        s2.addQuantity(200);
+        System.out.println("200 of " + s2.getName() + " were added.\nThere are now " + s2.getQuantity() + " of " + s2.getName() + ".\n");
+        System.out.println(c2.buySnack(s2, 50));
     }
 }

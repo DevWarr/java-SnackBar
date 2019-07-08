@@ -50,11 +50,11 @@ public class Customer
         // error handling
         if (cost == -1)
         {
-            return result += "There are not enough snacks to buy.";
+            return result += "There are not enough snacks to buy.\n";
         }
         if (cost == -2)
         {
-            return result += name + " does not have enough cash to buy " + quantity + " of " + snack.getName();
+            return result += name + " does not have enough cash to buy " + quantity + " of " + snack.getName() + ".\n";
         }
 
         // if successful
