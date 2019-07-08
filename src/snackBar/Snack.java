@@ -1,5 +1,7 @@
 package snackBar;
 
+import java.math.BigDecimal;
+
 public class Snack
 {
     private static int maxId = 0; // Stores current maximum id, incremented and used to set id of a new object
@@ -55,7 +57,8 @@ public class Snack
     // get total cost, given a quanity
     public double getTotalCost(int quantity)
     {
-        return cost*quantity;
+        BigDecimal result = cost*quantity;
+        return result.doubleValue();
     }
 
     // get and set vendingMachineId
@@ -83,15 +86,27 @@ public class Snack
     // buy snack(s)
     public double buySnack(double cash, int quantity)
     {
+        // We should have enough snacks and enough cash to buy. These if statements return error codes if false.
+
+        // Check if there are enough snacks:
         if (!(this.quantity > quantity))
         {
             return result = -1; // Error code: Not enough snacks to purchase
         }
-        if (!(cash > cost*quantity))
+
+        // Check if Customer has enough cash:
+        if (!(cash > getTotalCost(quantity)))
         {
             return result = -2; // Error code: Not enough cash to purchase
         }
-        this.quantity -= quantity; // Set our new auntity of snacks
-        return cost*quantity; // Return how much the purchase cost.
+        this.quantity -= quantity; // Set our new quantity of snacks
+        return result = getTotalCost(quantity); // Return how much the purchase cost.
+    }
+
+    // Display snack info
+    public String snackInfo()
+    {
+        String display = "***" + name.toUpperCase() + "***\nQuantity: " + quantity + ":\nCost: $" + cost;
+        return display;
     }
 }
