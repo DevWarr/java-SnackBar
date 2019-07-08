@@ -57,8 +57,8 @@ public class Snack
     // get total cost, given a quanity
     public double getTotalCost(int quantity)
     {
-        BigDecimal result = cost*quantity;
-        return result.doubleValue();
+        double result = cost*quantity;
+        return result;
     }
 
     // get and set vendingMachineId
@@ -86,21 +86,24 @@ public class Snack
     // buy snack(s)
     public double buySnack(double cash, int quantity)
     {
+        double result;
         // We should have enough snacks and enough cash to buy. These if statements return error codes if false.
-
         // Check if there are enough snacks:
         if (!(this.quantity > quantity))
         {
-            return result = -1; // Error code: Not enough snacks to purchase
+            result = -1; // Error code: Not enough snacks to purchase
+            return result;
         }
 
         // Check if Customer has enough cash:
         if (!(cash > getTotalCost(quantity)))
         {
-            return result = -2; // Error code: Not enough cash to purchase
+            result = -2; // Error code: Not enough cash to purchase
+            return result;
         }
         this.quantity -= quantity; // Set our new quantity of snacks
-        return result = getTotalCost(quantity); // Return how much the purchase cost.
+        result = getTotalCost(quantity); // Return how much the purchase cost.
+        return result;
     }
 
     // Display snack info

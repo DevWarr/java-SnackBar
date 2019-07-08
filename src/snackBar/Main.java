@@ -5,7 +5,7 @@ public class Main
     public static void main(String[] args)
     {
 
-        // instantiate objects
+        // Instantiate objects
         Customer c1 = new Customer("Jane", 45.25);
         Customer c2 = new Customer("Bob", 33.14);
 
@@ -20,6 +20,7 @@ public class Main
         Snack s4 = new Snack("Soda", 24, 2.50, 2);
         Snack s5 = new Snack("Water", 20, 2.75, 2);
 
+        // Display Vanding Machines and snacks within
         System.out.println("Inside the " + vm1.getName() + " vending machine:");
         System.out.println(s1.snackInfo());
         System.out.println(s2.snackInfo());
@@ -29,5 +30,25 @@ public class Main
         System.out.println(s4.snackInfo());
         System.out.println(s5.snackInfo());
         System.out.println("\n");
+        System.out.println("Inside the " + vm3.getName() + " vending machine:");
+        System.out.println("***NO SNACKS***\n\n");
+
+        // Display Customer Info
+        System.out.println(c1.info());
+        System.out.println(c2.info());
+        System.out.println("\n");
+
+        // Processing as requested by MVP
+        System.out.println(c1.buySnack(s4, 3));
+        System.out.println(c1.buySnack(s3, 1));
+        System.out.println(c2.buySnack(s4, 2));
+        System.out.println(c1.getName() + " finds $10!");
+        System.out.println(c1.info() + "\n");
+        System.out.println(c1.buySnack(s2, 1));
+        System.out.println("12 of " + s3.getName() + " were added.\nThere are now " + s3.getQuantity() + " of " + s3.getName() + ".\n");
+        System.out.println(c2.buySnack(s3, 3));
+
+        // Extra processing
+        System.out.println(c2.buySnack(s4, 50));
     }
 }

@@ -37,23 +37,28 @@ public class Customer
         this.cash = cash;
     }
 
+    public String info() 
+    {
+        return name + " has $" + cash + " to spend.";
+    }
+
     // buy a specified snack, if theycustomer has enough cash
-    public String buySnack(Object snack, int quantity)
+    public String buySnack(Snack snack, int quantity)
     {
         double cost = snack.buySnack(cash, quantity);
-
+        String result = name + " goes to buy " + quantity + " of " + snack.getName() + ", for a total cost of $" + snack.getTotalCost(quantity) + ".\n";
         // error handling
         if (cost == -1)
         {
-            return result = "There are not enough snacks to buy.";
+            return result += "There are not enough snacks to buy.";
         }
         if (cost == -2)
         {
-            return result = name + " does not have enough cash to buy " + quantity + " of " + snack.name;
+            return result += name + " does not have enough cash to buy " + quantity + " of " + snack.getName();
         }
 
         // if successful
         cash -= cost;
-        return result = "Transaction successful.";
+        return result += "Transaction successful.\n" + name + " now has $" + cash + ".\nThere are now " + snack.getQuantity() + " of " + snack.getName() + ".\n";
     }
 }
