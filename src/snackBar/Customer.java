@@ -15,6 +15,17 @@ public class Customer
         this.cash = cash;
     }
 
+    // get and set id
+    public int getId()
+    {
+        return id;
+    }
+
+    public void setId(int id)
+    {
+        this.id = id;
+    }
+
     // get and set name
     public String getName()
     {
@@ -34,7 +45,7 @@ public class Customer
 
     public void addCash(double cash)
     {
-        this.cash = cash;
+        this.cash += cash;
     }
 
     public String info() 
